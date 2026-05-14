@@ -1,0 +1,199 @@
+[NEAT]
+# The fitness function will try to maximize the score (higher is better)
+fitness_criterion = max
+
+# The target fitness to stop evolution (if reached, evolution ends)
+fitness_threshold = 100000000
+
+# Number of genomes (neural networks) in each generation
+pop_size = 30
+
+# If all species die out, reset population to avoid total extinction
+reset_on_extinction = True
+
+# If False, evolution stops when fitness_threshold is reached
+no_fitness_termination = False
+
+
+[DefaultGenome]
+# Node activation options
+# Default activation function for nodes (tanh maps inputs to [-1,1])
+activation_default = tanh
+
+# Probability that a node’s activation function will mutate
+activation_mutate_rate = 0.01
+
+# List of possible activation functions (only tanh here)
+activation_options = tanh
+
+# Structural mutation options
+# If True, only one structural mutation occurs per genome per generation; False allows multiple
+single_structural_mutation = false
+
+# Defines method to ensure mutations are valid (default method is used)
+structural_mutation_surer = default
+
+# Bias initialization
+# Initialize node biases using Gaussian distribution
+bias_init_type = gaussian
+
+# Mean of the Gaussian distribution for bias initialization
+bias_init_mean = 0.0
+
+# Standard deviation of Gaussian for bias initialization
+bias_init_stdev = 1.0
+
+# Maximum allowed bias value
+bias_max_value = 30.0
+
+# Minimum allowed bias value
+bias_min_value = -30.0
+
+# Maximum change in bias when mutated
+bias_mutate_power = 0.5
+
+# Probability that a bias will be mutated
+bias_mutate_rate = 0.7
+
+# Probability that a bias is replaced entirely with a new random value
+bias_replace_rate = 0.1
+
+# Node aggregation options
+# How input signals to a node are combined (sum of inputs)
+aggregation_default = sum
+
+# Probability that aggregation method of a node will mutate
+aggregation_mutate_rate = 0.01
+
+# List of allowed aggregation methods (only sum here)
+aggregation_options = sum
+
+# Genome compatibility options
+# Importance of disjoint genes in species compatibility calculation
+compatibility_disjoint_coefficient = 1.0
+
+# Importance of weight differences in compatibility calculation
+compatibility_weight_coefficient = 0.5
+
+# Connection add/remove rates
+# Probability of adding a new connection during mutation
+conn_add_prob = 0.5
+
+# Probability of deleting an existing connection during mutation
+conn_delete_prob = 0.5
+
+# Connection enable options
+# Default state of a new connection (enabled)
+enabled_default = True
+
+# Chance to toggle a connection’s enabled/disabled state
+enabled_mutate_rate = 0.01
+
+# Chance to enable a connection during addition mutation (unused here)
+enabled_rate_to_true_add = 0.0
+
+# Chance to disable a connection during addition mutation (unused here)
+enabled_rate_to_false_add = 0.0
+
+# Minimum number of genomes a species can have to avoid extinction
+min_species_size = 1
+
+# Feed-forward only networks (no recurrent connections)
+feed_forward = True
+
+# Start with all possible input-to-output connections
+initial_connection = full
+
+# Node add/remove rates
+# Probability of adding a new node during mutation
+node_add_prob = 0.2
+
+# Probability of deleting a node during mutation
+node_delete_prob = 0.2
+
+# Network parameters
+# Initial number of hidden nodes (network starts minimal)
+num_hidden = 0
+
+# Number of input nodes
+num_inputs = 5
+
+# Number of output nodes
+num_outputs = 4
+
+# Node response options
+# Initialize node response using Gaussian distribution
+response_init_type = gaussian
+
+# Mean of Gaussian for node response
+response_init_mean = 1.0
+
+# Standard deviation for node response (0 means no randomness)
+response_init_stdev = 0.0
+
+# Maximum allowed node response
+response_max_value = 30.0
+
+# Minimum allowed node response
+response_min_value = -30.0
+
+# Maximum change in response during mutation
+response_mutate_power = 0.0
+
+# Probability of response mutation
+response_mutate_rate = 0.0
+
+# Probability of replacing response entirely
+response_replace_rate = 0.0
+
+# Connection weight options
+# Initialize connection weights using Gaussian distribution
+weight_init_type = gaussian
+
+# Mean of Gaussian for weight initialization
+weight_init_mean = 0.0
+
+# Standard deviation for weight initialization
+weight_init_stdev = 1.0
+
+# Maximum allowed weight
+weight_max_value = 30.0
+
+# Minimum allowed weight
+weight_min_value = -30.0
+
+# Maximum change in weight during mutation
+weight_mutate_power = 0.5
+
+# Probability a weight will mutate
+weight_mutate_rate = 0.8
+
+# Probability a weight is replaced with a new random value
+weight_replace_rate = 0.1
+
+
+[DefaultSpeciesSet]
+# Maximum distance between genomes in the same species; higher = fewer species
+compatibility_threshold = 2.0
+
+
+[DefaultStagnation]
+# Fitness of species is the max fitness among its members
+species_fitness_func = max
+
+# Species dies if it doesn’t improve for 20 generations
+max_stagnation = 20
+
+# Number of top genomes in a species preserved without change
+species_elitism = 2
+
+
+[DefaultReproduction]
+# Top 3 genomes in the population are preserved directly into the next generation
+elitism = 3
+
+# Fraction of species allowed to reproduce (top 20% survive)
+survival_threshold = 0.2
+
+# Minimum size for species to reproduce
+min_species_size = 1
